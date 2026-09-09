@@ -1,0 +1,109 @@
+:root {
+  --bg: #ffffff;
+  --fg: #101828;
+  --muted: #667085;
+  --card: #f9fafb;
+  --brand: #4f46e5;
+  --border: #e4e7ec;
+  --error: #d92d20;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.contenedor { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem; }
+
+h1 { text-align: center; margin-bottom: 1.5rem; }
+
+.buscador {
+  width: 100%; padding: .85rem 1rem; font-size: 1rem;
+  border: 1px solid var(--border); border-radius: .6rem;
+  background: var(--bg); color: var(--fg); margin-bottom: 2rem;
+}
+.buscador:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+/* Estados */
+.estado { text-align: center; color: var(--muted); padding: 3rem 1rem; font-size: 1.05rem; }
+.estado--error { color: var(--error); }
+.estado--error button {
+  margin-top: .75rem; padding: .6rem 1.2rem; cursor: pointer;
+  border: 1px solid var(--error); background: none;
+  color: var(--error); border-radius: .5rem;
+}
+
+/* Rejilla de tarjetas */
+.rejilla {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.tarjeta {
+  width: 100%; display: flex; flex-direction: column; align-items: center;
+  gap: .5rem; padding: 1rem .75rem; cursor: pointer;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: .9rem; font: inherit; color: inherit;
+  text-transform: capitalize; transition: transform .15s, border-color .15s;
+}
+.tarjeta:hover { transform: translateY(-3px); border-color: var(--brand); }
+
+/* Paginación */
+.paginacion {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-top: 2rem; color: var(--muted);
+}
+.paginacion button {
+  padding: .6rem 1.1rem; cursor: pointer; border-radius: .5rem;
+  border: 1px solid var(--border); background: var(--bg); color: var(--fg);
+}
+.paginacion button:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Detalle */
+.detalle, .panel { text-align: center; text-transform: capitalize; }
+.panel {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(360px, 90vw);
+  background: var(--card); border-left: 1px solid var(--border);
+  padding: 2rem 1.5rem; overflow-y: auto;
+  box-shadow: -8px 0 24px rgba(16, 24, 40, .08);
+}
+.cerrar {
+  position: absolute; top: 1rem; right: 1rem; cursor: pointer;
+  border: none; background: none; font-size: 1.3rem; color: var(--muted);
+}
+
+.stats { list-style: none; padding: 0; text-align: left; margin-top: 1.5rem; }
+.stats li {
+  display: grid; grid-template-columns: 6rem 1fr 2.5rem;
+  align-items: center; gap: .6rem; margin-bottom: .6rem; font-size: .85rem;
+}
+.stats progress { width: 100%; height: .55rem; }
+
+/* Proyecto B */
+.formulario { display: grid; gap: .8rem; margin-bottom: 2rem; }
+.formulario input, .formulario textarea {
+  padding: .7rem .9rem; border-radius: .5rem; font: inherit;
+  border: 1px solid var(--border); background: var(--bg); color: var(--fg);
+}
+.formulario button {
+  justify-self: start; padding: .7rem 1.4rem; cursor: pointer;
+  background: var(--brand); color: #fff; border: none; border-radius: .5rem;
+  font-weight: 600;
+}
+.formulario button:disabled { opacity: .5; cursor: not-allowed; }
+
+.post {
+  border: 1px solid var(--border); border-radius: .8rem;
+  padding: 1rem 1.2rem; margin-bottom: .9rem; background: var(--card);
+}
+.post h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.post p { margin: 0 0 .8rem; color: var(--muted); font-size: .9rem; }
+.post .acciones { display: flex; gap: .5rem; }
+.post .acciones button {
+  padding: .35rem .8rem; font-size: .85rem; cursor: pointer;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--fg); border-radius: .4rem;
+}
